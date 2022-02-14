@@ -21,7 +21,7 @@ input.onButtonPressed(Button.B, function () {
     radio.sendValue("alarm", 0)
 })
 radio.onReceivedValue(function (name, value) {
-    if (name == "alarm" && value == 1) {
+    if (name == "alarm" && value == 1 && alarm == false) {
         alarm = true
         basic.showLeds(`
             . . # . .
@@ -30,7 +30,8 @@ radio.onReceivedValue(function (name, value) {
             # # # # #
             . . # . .
             `)
-    } else if (name == "alarm" && value == 0) {
+        radio.sendValue("alarm", 1)
+    } else if (name == "alarm" && value == 0 && alarm == true) {
         alarm = false
         basic.showLeds(`
             . . # . .
@@ -39,9 +40,11 @@ radio.onReceivedValue(function (name, value) {
             # # # # #
             . . . . .
             `)
+        radio.sendValue("alarm", 0)
     }
 })
 let alarm = false
+radio.setGroup(1)
 basic.showLeds(`
     . . # . .
     . # # # .
