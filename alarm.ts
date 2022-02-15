@@ -21,9 +21,9 @@ namespace Alarm {
 
         
     /**
-    * Spustí alarm a pošle všem zařízením v okolí zprávu
+    * Spustí alarm a pošle všem zařízením v okolí pokyn ke spuštění alarmu
     */
-    //% block="Spusť alarm a pošli zprávu"
+    //% block="Spusť alarm a pošli pokyn"
 
     export function SpustitAlarmAOdesli(): void {
         alarm = true
@@ -38,9 +38,9 @@ namespace Alarm {
     }
 
     /**
-    * Vypne alarm a pošle všem zařízením v okolí zprávu
+    * Vypne alarm a pošle všem zařízením v okolí pokyn k vypnutí alarmu
     */
-    //% block="Vypni alarm a pošli zprávu"
+    //% block="Vypni alarm a pošli pokyn"
 
     export function VypnoutAlarmAOdesli(): void {
         alarm = false
@@ -55,7 +55,7 @@ namespace Alarm {
     }
 
     /**
-    * Přijmout pokyn
+    * Přijme pokyn od jiného zařízení
     */
     //% block="Přijmout pokyn %name %value"
 
