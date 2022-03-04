@@ -34,7 +34,7 @@ namespace Alarm {
         # # # # #
         . . # . .
         `)
-        radio.sendValue("alarm", 1)
+        radio.sendString("alarm_on")
     }
 
     /**
@@ -51,16 +51,16 @@ namespace Alarm {
         # # # # #
         . . . . .
         `)
-        radio.sendValue("alarm", 0)
+        radio.sendString("alarm_off")
     }
 
     /**
     * Přijme pokyn od jiného zařízení
     */
-    //% block="Přijmout pokyn %name %value"
+    //% block="Přijmout pokyn %name"
 
-    export function PrijmoutPokyn(name: string, value: number): void {
-        if (name == "alarm" && value == 1 && alarm == false) {
+    export function PrijmoutPokyn(name: string): void {
+        if (name == "alarm_on" && alarm == false) {
             alarm = true
             basic.showLeds(`
             . . # . .
@@ -69,8 +69,8 @@ namespace Alarm {
             # # # # #
             . . # . .
             `)
-            radio.sendValue("alarm", 1)
-        } else if (name == "alarm" && value == 0 && alarm == true) {
+            radio.sendString("alarm_on")
+        } else if (name == "alarm_off" && alarm == true) {
             alarm = false
             basic.showLeds(`
             . . # . .
@@ -79,7 +79,7 @@ namespace Alarm {
             # # # # #
             . . . . .
             `)
-            radio.sendValue("alarm", 0)
+            radio.sendString("alarm_off")
         }
     }
 
