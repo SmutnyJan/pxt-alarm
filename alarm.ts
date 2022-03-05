@@ -25,7 +25,7 @@ namespace Alarm {
     */
     //% block="Spusť alarm a pošli pokyn"
 
-    export function SpustitAlarmAOdesli(): void {
+    export function spustitAlarmAOdesli(): void {
         alarm = true
         basic.showLeds(`
         . . # . .
@@ -42,7 +42,7 @@ namespace Alarm {
     */
     //% block="Vypni alarm a pošli pokyn"
 
-    export function VypnoutAlarmAOdesli(): void {
+    export function vypnoutAlarmAOdesli(): void {
         alarm = false
         basic.showLeds(`
         . . # . .
@@ -59,7 +59,7 @@ namespace Alarm {
     */
     //% block="Přijmout pokyn %name"
 
-    export function PrijmoutPokyn(name: string): void {
+    export function prijmoutPokyn(name: string): void {
         if (name == "alarm_on" && alarm == false) {
             alarm = true
             basic.showLeds(`

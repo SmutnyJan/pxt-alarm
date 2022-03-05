@@ -1,10 +1,10 @@
 input.onButtonPressed(Button.A, function () {
-    Alarm.SpustitAlarmAOdesli()
+    Alarm.spustitAlarmAOdesli()
 })
 radio.onReceivedString(function (receivedString) {
-    Alarm.PrijmoutPokyn(receivedString)
+    Alarm.prijmoutPokyn(receivedString)
 })
 input.onButtonPressed(Button.B, function () {
-    Alarm.VypnoutAlarmAOdesli()
+    Alarm.vypnoutAlarmAOdesli()
 })
 radio.setGroup(1)
