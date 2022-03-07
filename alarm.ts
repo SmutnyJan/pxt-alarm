@@ -1,13 +1,4 @@
-/**
- * Použijte tento soubor k definování personalizovaných funkcí a bloků.
- * Přečtěte si více na https://makecode.microbit.org/blocks/custom
- */
-
-
-/**
- * Custom blocks
- */
-//% weight=100 color=#d1242c icon="\uf0f3"
+//% weight=100 color=#d1242c icon="\uf0f3" block="Alarm"
 namespace Alarm {
     let alarm = false
 
@@ -25,7 +16,7 @@ namespace Alarm {
     */
     //% block="Spusť alarm a pošli pokyn"
 
-    export function spustitAlarmAOdesli(): void {
+    export function spustitAlarmAOdeslat(): void {
         alarm = true
         basic.showLeds(`
         . . # . .
@@ -42,7 +33,7 @@ namespace Alarm {
     */
     //% block="Vypni alarm a pošli pokyn"
 
-    export function vypnoutAlarmAOdesli(): void {
+    export function vypnoutAlarmAOdeslat(): void {
         alarm = false
         basic.showLeds(`
         . . # . .
@@ -56,11 +47,12 @@ namespace Alarm {
 
     /**
     * Přijme pokyn od jiného zařízení
+    * @pokyn Pokyn
     */
-    //% block="Přijmout pokyn %name"
+    //% block="Přijmout pokyn %pokyn"
 
-    export function prijmoutPokyn(name: string): void {
-        if (name == "alarm_on" && alarm == false) {
+    export function prijmoutPokyn(pokyn: string): void {
+        if (pokyn == "alarm_on" && alarm == false) {
             alarm = true
             basic.showLeds(`
             . . # . .
@@ -70,7 +62,7 @@ namespace Alarm {
             . . # . .
             `)
             radio.sendString("alarm_on")
-        } else if (name == "alarm_off" && alarm == true) {
+        } else if (pokyn == "alarm_off" && alarm == true) {
             alarm = false
             basic.showLeds(`
             . . # . .
