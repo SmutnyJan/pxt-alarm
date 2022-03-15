@@ -1,5 +1,5 @@
 //% weight=100 color=#d1242c icon="\uf0f3" block="Alarm"
-namespace Alarm {
+namespace alarm {
     let alarm = false
 
     basic.showLeds(`
@@ -16,7 +16,7 @@ namespace Alarm {
     */
     //% block="Spusť alarm a pošli pokyn"
 
-    export function spustitAlarmAOdeslat(): void {
+    export function turnOnAlarmAndBroadcast(): void {
         alarm = true
         basic.showLeds(`
         . . # . .
@@ -33,7 +33,7 @@ namespace Alarm {
     */
     //% block="Vypni alarm a pošli pokyn"
 
-    export function vypnoutAlarmAOdeslat(): void {
+    export function turnOffAlarmAndBroadcast(): void {
         alarm = false
         basic.showLeds(`
         . . # . .
@@ -47,12 +47,12 @@ namespace Alarm {
 
     /**
     * Přijme pokyn od jiného zařízení
-    * @pokyn Pokyn
+    * @message Pokyn
     */
-    //% block="Přijmout pokyn %pokyn"
+    //% block="Přijmout pokyn %message"
 
-    export function prijmoutPokyn(pokyn: string): void {
-        if (pokyn == "alarm_on" && alarm == false) {
+    export function receiveBroadcast(message: string): void {
+        if (message == "alarm_on" && alarm == false) {
             alarm = true
             basic.showLeds(`
             . . # . .
@@ -62,7 +62,7 @@ namespace Alarm {
             . . # . .
             `)
             radio.sendString("alarm_on")
-        } else if (pokyn == "alarm_off" && alarm == true) {
+        } else if (message == "alarm_off" && alarm == true) {
             alarm = false
             basic.showLeds(`
             . . # . .
