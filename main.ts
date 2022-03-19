@@ -7,3 +7,4 @@ radio.onReceivedString(function (receivedString) {
 input.onButtonPressed(Button.B, function () {
     alarm.turnOffAlarmAndBroadcast()
 })
+radio.setGroup(1)
