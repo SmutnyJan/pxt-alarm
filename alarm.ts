@@ -2,45 +2,6 @@
 namespace alarm {
     let alarm = false
     let methodLock = false
-      
-    /**
-    * Spustí alarm a pošle všem zařízením v okolí pokyn ke spuštění alarmu
-    */
-    //% block="Spusť alarm a pošli pokyn"
-
-    export function turnOnAlarmAndBroadcast(): void {
-        alarm = true
-        radio.sendString("alarm_on")
-    }
-
-    /**
-    * Vypne alarm a pošle všem zařízením v okolí pokyn k vypnutí alarmu
-    */
-    //% block="Vypni alarm a pošli pokyn"
-
-    export function turnOffAlarmAndBroadcast(): void {
-        alarm = false
-        radio.sendString("alarm_off")
-    }
-
-    /**
-    * Přijme pokyn od jiného zařízení, vrací true/false podle toho, jestli je alarm vypnutý nebo zapnutý
-    * @message Pokyn
-    */
-    //% block="Přijmout pokyn %message"
-
-    export function receiveBroadcast(message: string): boolean {
-        if (message == "alarm_on" && alarm == false) {
-            alarm = true
-            radio.sendString("alarm_on")
-        } else if (message == "alarm_off" && alarm == true) {
-            alarm = false
-            radio.sendString("alarm_off")
-        }
-        return alarm
-    }
-
-
 
     /**
     * Zkontroluje, jestli nedošlo k pohybu
@@ -67,6 +28,62 @@ namespace alarm {
             }
         })
     }
+
+
+
+    /**
+    * Spustí alarm a pošle všem zařízením v okolí pokyn ke spuštění alarmu
+    * @message Pokyn
+    */
+    //% block="Spusť alarm a pošli pokyn || %message"
+
+    export function turnOnAlarmAndBroadcast(message?: string): void {
+        if(message == null) {
+            message = "alarm_on"
+        }
+        if (alarm == false) {
+            radio.sendString(message)
+        }
+        alarm = true
+    }
+
+    /**
+    * Vypne alarm a pošle všem zařízením v okolí pokyn k vypnutí alarmu
+    * @message Pokyn
+    */
+    //% block="Vypni alarm a pošli pokyn || %message"
+
+    export function turnOffAlarmAndBroadcast(message?: string): void {
+        if (message == null) {
+            message = "alarm_off"
+        }
+        if (alarm == true) {
+            radio.sendString(message)
+        }
+        alarm = false
+    }
+
+
+    /**
+    * Přijme pokyn od jiného zařízení, vrací true/false podle toho, jestli je alarm vypnutý nebo zapnutý
+    * @message Pokyn
+    */
+    //% block="Přijmout pokyn %message"
+
+    export function receiveBroadcast(message: string): boolean {
+        if (message == "alarm_on") {
+            turnOnAlarmAndBroadcast("alarm_on")
+        } else if (message == "alarm_off") {
+            turnOffAlarmAndBroadcast("alarm_off")
+        }
+        return alarm
+    }
+
+
+
+
+
+
 
 
 
