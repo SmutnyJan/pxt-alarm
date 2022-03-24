@@ -4,11 +4,11 @@ namespace alarm {
     let methodLock = false
 
     /**
-    * Zkontroluje, jestli nedošlo k pohybu
+    * Provede akci v moment, kdy je zapnutý alarm
     * @action Příkazy, které se provedou při moc zapnutí alarmu
     */
     //% block="Při zapnutí alarmu"
-    export function onGuardAwaken(action: () => void) {
+    export function onAlarm(action: () => void) {
         const eventID = 111 + Math.randomRange(0, 100);
 
         control.onEvent(eventID, 0, function () {

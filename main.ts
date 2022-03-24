@@ -1,4 +1,4 @@
-alarm.onGuardAwaken(function () {
+alarm.onAlarm(function () {
     music.playTone(262, music.beat(BeatFraction.Whole))
 })
 input.onButtonPressed(Button.A, function () {
