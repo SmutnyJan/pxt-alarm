@@ -50,7 +50,6 @@ function receiveBroadcast(message: string): boolean
 
 #### Bloky
 ![Alarm s výchozí zprávou](https://github.com/SmutnyJan/pxt-alarm/blob/master/images/easyexample.png)
-https://github.com/SmutnyJan/pxt-alarm/blob/master/image/easyexample.png
 #### Kód
 ```
 alarm.onAlarm(function () {
