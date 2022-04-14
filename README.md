@@ -1,11 +1,11 @@
-# Caesarova šifra
+# Alarm
 
 ## Namespace
 ```
 alarm
 ```
 ## Popis
-Tot rozšíření funguje jako alarm, který se spustí po zmačknutí tlačítka (nebo provedení jakéhokoli jiného vstupu). Alarm funguje cyklicky, což znamená, že pokud máme s dosahu microbity se správným programem (kódem), tak zapnutí alarmu pošle zprávu microbitům v okolím, že mají také spustit alarm (začít houkat). Tyto microbity to opět pošlou dál. Tímto způsobem se dá vytvořit takový „řetěz“. Alarm se poté dá i vypnout a to z jakéhokoli microbitu. Takže například na microbitu A zmáčkneme tlačítko. Microbit začne houkat a pošle microbitům v okolí zprávu, ať taky začnout houkat. Ty to opět pošlou dál. Zprávu dostane i microbit Z, na kterém zmáčkneme zase jiné tlačítko a tím alarm vypneme. Microbit Z tedy přestane houkat a pošle zprávu microbitům v okolí, aby taky přestaly houkat. Zpráva se nakonec dostane až k microbitu A, který původně alarm zapnul.
+Toto rozšíření funguje jako alarm, který se spustí po zmačknutí tlačítka (nebo provedení jakéhokoli jiného vstupu). Alarm funguje cyklicky, což znamená, že pokud máme s dosahu microbity se správným programem (kódem), tak zapnutí alarmu pošle zprávu microbitům v okolím, že mají také spustit alarm (začít houkat). Tyto microbity to opět pošlou dál. Tímto způsobem se dá vytvořit takový „řetěz“. Alarm se poté dá i vypnout a to z jakéhokoli microbitu. Takže například na microbitu A zmáčkneme tlačítko. Microbit začne houkat a pošle microbitům v okolí zprávu, ať taky začnout houkat. Ty to opět pošlou dál. Zprávu dostane i microbit Z, na kterém zmáčkneme zase jiné tlačítko a tím alarm vypneme. Microbit Z tedy přestane houkat a pošle zprávu microbitům v okolí, aby taky přestaly houkat. Zpráva se nakonec dostane až k microbitu A, který původně alarm zapnul.
  
 ## Metody
 ### Při zapnutí alarmu
